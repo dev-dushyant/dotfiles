@@ -1,3 +1,3 @@
-# cammand prompt settings
-export PS1="\033[34;1m\]\w \033[39;1m\] \$(git branch 2>/dev/null | grep '^*' | colrm 1 2) \033[32;1m\] \$ \[\033[32;0m\]"
-export PS2="| => "
+#   Set Default Editor (change 'Neo Vim' to the editor of your choice)
+#   ------------------------------------------------------------
+    export EDITOR=/usr/bin/nvim
