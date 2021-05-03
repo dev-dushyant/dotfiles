@@ -1,17 +1,23 @@
 # wireguard vpn servece turn on and off
+#alias au_vpn_start='sudo systemctl start wg-quick@au-vpn.service'
 
-# Australia
-alias au_vpn_start='sudo systemctl start wg-quick@au-vpn.service'
-alias au_vpn_status='sudo systemctl status wg-quick@au-vpn.service'
-alias au_vpn_stop='sudo systemctl stop wg-quick@au-vpn.service'
+#openVPN connections
+ovpn_start () {
+    openvpn3 session-start --config $1.ovpn
+}
+ovpn_end () {
+    openvpn3 session-manage --disconnect --config $1.ovpn
+}
 
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias ~='cd ~'				    # Switch to home dir
 cd() { builtin cd "$@"; ll; }               # Always list directory contents upon 'cd'
 alias ..='cd ../'                           # Go back 1 directory level
 alias ...='cd ../../'                       # Go back 2 directory levels
 alias edit='code'                           # edit: Opens any file in Atom editor
+alias c='clear'				    # Easy way to cleate terminal
 zipf () { zip -r "$1".zip "$1" ; }          # zipf: To create a ZIP archive of a folder
 
 #   extract:  Extract most know archives with one command
